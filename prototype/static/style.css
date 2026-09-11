@@ -1,0 +1,109 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    color: #222;
+    background: #fafafa;
+}
+
+a {
+    color: #2563eb;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+}
+
+header h1 {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+header h1 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    text-align: left;
+    padding: 0.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    vertical-align: top;
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.actions form {
+    display: inline;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 400px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.9rem;
+}
+
+input, textarea, select {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    width: fit-content;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.flashes {
+    list-style: none;
+    padding: 0.75rem 1rem;
+    margin: 0 0 1rem 0;
+    background: #fef3c7;
+    border: 1px solid #fcd34d;
+    border-radius: 4px;
+}
