@@ -130,15 +130,21 @@ Verification:
 ### SEC-08 — Session Security
 
 Authentication sessions must be generated and validated using trusted
-server-side mechanisms and must not rely on static credentials or
-predictable session identifiers.
+mechanisms and configured to reduce unnecessary exposure or misuse.
+Session cookies should use appropriate security attributes, including
+HttpOnly and SameSite, and Secure when HTTPS is applicable.
 
 Basis:
-- OWASP ASVS v5.0.0-7.2
+- OWASP ASVS v5.0.0-7.2.1
+- OWASP ASVS v5.0.0-7.2.2
+- OWASP ASVS v5.0.0-3.3.1
+- OWASP ASVS v5.0.0-3.3.2
+- OWASP ASVS v5.0.0-3.3.4
 
 Verification:
 - Inspect session implementation and configuration.
 - Verify protected requests require a valid authenticated session.
+- Inspect session-cookie security attributes.
 - Verify logout invalidates or terminates access as expected.
 
 ---
@@ -172,6 +178,44 @@ Verification:
 - Identify application dependencies.
 - Perform software composition/dependency analysis.
 - Record known vulnerabilities and affected component versions.
+
+---
+
+### SEC-11 — Request Forgery Protection
+
+Authenticated state-changing requests must include appropriate
+protection against cross-site request forgery.
+
+Basis:
+- OWASP ASVS v5.0.0-3.5.1
+
+Verification:
+- Inspect authenticated state-changing forms and requests.
+- Determine whether anti-CSRF tokens or an equivalent protection
+  mechanism is used.
+- Confirm protection is applied consistently to relevant requests.
+
+---
+
+### SEC-12 — Browser Security Headers
+
+Application responses should use appropriate browser security headers
+to reduce common client-side attack exposure.
+
+Relevant protections include Content Security Policy, clickjacking
+protection, and X-Content-Type-Options where applicable.
+
+Basis:
+- OWASP ASVS v5.0.0-3.4.3
+- OWASP ASVS v5.0.0-3.4.4
+- OWASP ASVS v5.0.0-3.4.6
+
+Verification:
+- Inspect HTTP response headers.
+- Check for an appropriate Content-Security-Policy.
+- Check for clickjacking protection using the CSP frame-ancestors
+  directive.
+- Check for X-Content-Type-Options where applicable.
 
 ---
 
