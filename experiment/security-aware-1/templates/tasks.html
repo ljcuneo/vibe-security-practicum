@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}My Tasks - Task Manager{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>My Tasks</h1>
+    <a class="button" href="{{ url_for('new_task') }}">+ New Task</a>
+</div>
+
+{% if tasks %}
+<table class="task-table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.title }}</td>
+            <td class="description-cell">{{ task.description }}</td>
+            <td><span class="status status-{{ task.status }}">{{ task.status }}</span></td>
+            <td class="actions-cell">
+                <a href="{{ url_for('edit_task', task_id=task.id) }}">Edit</a>
+                <form class="inline-form" method="post" action="{{ url_for('delete_task', task_id=task.id) }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button type="submit" class="link-button danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>You have no tasks yet. <a href="{{ url_for('new_task') }}">Create one</a>.</p>
+{% endif %}
+{% endblock %}
