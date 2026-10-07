@@ -1,0 +1,927 @@
+{
+  "errors": [],
+  "generated_at": "2026-10-07T19:50:27Z",
+  "metrics": {
+    "./app.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 360,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "./test_smoke.py": {
+      "CONFIDENCE.HIGH": 39,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 5,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 44,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 86,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 39,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 5,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 44,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 446,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "15 \n16 PASSWORD = \"correct-horse-42\"\n17 \n",
+      "col_offset": 11,
+      "end_col_offset": 29,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: 'correct-horse-42'",
+      "line_number": 16,
+      "line_range": [
+        16
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b105_hardcoded_password_string.html",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string"
+    },
+    {
+      "code": "43 # Authentication is required.\n44 assert anon.get(\"/\").status_code == 302\n45 assert anon.get(\"/tasks/new\").status_code == 302\n",
+      "col_offset": 0,
+      "end_col_offset": 39,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 44,
+      "line_range": [
+        44
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "44 assert anon.get(\"/\").status_code == 302\n45 assert anon.get(\"/tasks/new\").status_code == 302\n46 assert anon.get(\"/admin/users\").status_code == 302\n",
+      "col_offset": 0,
+      "end_col_offset": 48,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 45,
+      "line_range": [
+        45
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "45 assert anon.get(\"/tasks/new\").status_code == 302\n46 assert anon.get(\"/admin/users\").status_code == 302\n47 \n",
+      "col_offset": 0,
+      "end_col_offset": 50,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 46,
+      "line_range": [
+        46
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "49 r = anon.get(\"/login\")\n50 assert \"frame-ancestors 'none'\" in r.headers[\"Content-Security-Policy\"]\n51 assert r.headers[\"X-Content-Type-Options\"] == \"nosniff\"\n",
+      "col_offset": 0,
+      "end_col_offset": 71,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 50,
+      "line_range": [
+        50
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "50 assert \"frame-ancestors 'none'\" in r.headers[\"Content-Security-Policy\"]\n51 assert r.headers[\"X-Content-Type-Options\"] == \"nosniff\"\n52 cookie = r.headers[\"Set-Cookie\"]\n",
+      "col_offset": 0,
+      "end_col_offset": 55,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 51,
+      "line_range": [
+        51
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "52 cookie = r.headers[\"Set-Cookie\"]\n53 assert \"HttpOnly\" in cookie and \"SameSite=Lax\" in cookie\n54 \n",
+      "col_offset": 0,
+      "end_col_offset": 56,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 53,
+      "line_range": [
+        53
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "55 # Password policy.\n56 assert b\"at least 10\" in register(anon, \"weak\", \"short1\").data\n57 assert b\"letter and one digit\" in register(anon, \"weak\", \"onlyletters\").data\n",
+      "col_offset": 0,
+      "end_col_offset": 62,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 56,
+      "line_range": [
+        56
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "56 assert b\"at least 10\" in register(anon, \"weak\", \"short1\").data\n57 assert b\"letter and one digit\" in register(anon, \"weak\", \"onlyletters\").data\n58 assert b\"contain the username\" in register(anon, \"weakuser\", \"weakuser123\").data\n",
+      "col_offset": 0,
+      "end_col_offset": 76,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 57,
+      "line_range": [
+        57
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "57 assert b\"letter and one digit\" in register(anon, \"weak\", \"onlyletters\").data\n58 assert b\"contain the username\" in register(anon, \"weakuser\", \"weakuser123\").data\n59 \n",
+      "col_offset": 0,
+      "end_col_offset": 80,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 58,
+      "line_range": [
+        58
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "60 # Registration, duplicate usernames (case-insensitive), login.\n61 assert register(alice, \"alice\").status_code == 302\n62 assert b\"not available\" in register(anon, \"ALICE\").data\n",
+      "col_offset": 0,
+      "end_col_offset": 50,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 61,
+      "line_range": [
+        61
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "61 assert register(alice, \"alice\").status_code == 302\n62 assert b\"not available\" in register(anon, \"ALICE\").data\n63 assert register(bob, \"bob\").status_code == 302\n",
+      "col_offset": 0,
+      "end_col_offset": 55,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 62,
+      "line_range": [
+        62
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "62 assert b\"not available\" in register(anon, \"ALICE\").data\n63 assert register(bob, \"bob\").status_code == 302\n64 assert login(alice, \"alice\").status_code == 302\n",
+      "col_offset": 0,
+      "end_col_offset": 46,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 63,
+      "line_range": [
+        63
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "63 assert register(bob, \"bob\").status_code == 302\n64 assert login(alice, \"alice\").status_code == 302\n65 assert login(bob, \"bob\").status_code == 302\n",
+      "col_offset": 0,
+      "end_col_offset": 47,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 64,
+      "line_range": [
+        64
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "64 assert login(alice, \"alice\").status_code == 302\n65 assert login(bob, \"bob\").status_code == 302\n66 \n",
+      "col_offset": 0,
+      "end_col_offset": 43,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 65,
+      "line_range": [
+        65
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "71     ).fetchone()[0]\n72 assert PASSWORD not in stored and stored.startswith(\"scrypt:\")\n73 \n",
+      "col_offset": 0,
+      "end_col_offset": 62,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 72,
+      "line_range": [
+        72
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "74 # CSRF: a POST without a token is rejected.\n75 assert alice.post(\"/tasks/new\", data={\"title\": \"x\", \"status\": \"todo\"}).status_code == 400\n76 \n",
+      "col_offset": 0,
+      "end_col_offset": 89,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 75,
+      "line_range": [
+        75
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "78 bad = {\"title\": \"\", \"description\": \"\", \"status\": \"todo\"}\n79 assert b\"Title is required\" in post(alice, \"/tasks/new\", bad).data\n80 bad = {\"title\": \"t\", \"description\": \"\", \"status\": \"bogus\"}\n",
+      "col_offset": 0,
+      "end_col_offset": 66,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 79,
+      "line_range": [
+        79
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "80 bad = {\"title\": \"t\", \"description\": \"\", \"status\": \"bogus\"}\n81 assert b\"Invalid status\" in post(alice, \"/tasks/new\", bad).data\n82 \n",
+      "col_offset": 0,
+      "end_col_offset": 63,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 81,
+      "line_range": [
+        81
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "85 r = post(alice, \"/tasks/new\", {\"title\": xss, \"description\": \"d\", \"status\": \"todo\"})\n86 assert r.status_code == 302\n87 page = alice.get(\"/\").get_data(as_text=True)\n",
+      "col_offset": 0,
+      "end_col_offset": 27,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 86,
+      "line_range": [
+        86
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "87 page = alice.get(\"/\").get_data(as_text=True)\n88 assert \"<script>alert(1)</script>\" not in page\n89 assert \"&lt;script&gt;alert(1)&lt;/script&gt;\" in page\n",
+      "col_offset": 0,
+      "end_col_offset": 46,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 88,
+      "line_range": [
+        88
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "88 assert \"<script>alert(1)</script>\" not in page\n89 assert \"&lt;script&gt;alert(1)&lt;/script&gt;\" in page\n90 \n",
+      "col_offset": 0,
+      "end_col_offset": 54,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 89,
+      "line_range": [
+        89
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "91 # Object-level authorization: bob cannot see, edit, or delete alice's task.\n92 assert \"alert(1)\" not in bob.get(\"/\").get_data(as_text=True)\n93 assert bob.get(\"/tasks/1/edit\").status_code == 404\n",
+      "col_offset": 0,
+      "end_col_offset": 60,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 92,
+      "line_range": [
+        92
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "92 assert \"alert(1)\" not in bob.get(\"/\").get_data(as_text=True)\n93 assert bob.get(\"/tasks/1/edit\").status_code == 404\n94 edit = {\"title\": \"hacked\", \"description\": \"\", \"status\": \"done\"}\n",
+      "col_offset": 0,
+      "end_col_offset": 50,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 93,
+      "line_range": [
+        93
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "94 edit = {\"title\": \"hacked\", \"description\": \"\", \"status\": \"done\"}\n95 assert post(bob, \"/tasks/1/edit\", edit, token_path=\"/tasks/new\").status_code == 404\n96 assert post(bob, \"/tasks/1/delete\", {}, token_path=\"/tasks/new\").status_code == 404\n",
+      "col_offset": 0,
+      "end_col_offset": 83,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 95,
+      "line_range": [
+        95
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "94 edit = {\"title\": \"hacked\", \"description\": \"\", \"status\": \"done\"}\n95 assert post(bob, \"/tasks/1/edit\", edit, token_path=\"/tasks/new\").status_code == 404\n96 assert post(bob, \"/tasks/1/delete\", {}, token_path=\"/tasks/new\").status_code == 404\n",
+      "col_offset": 7,
+      "end_col_offset": 64,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: '/tasks/new'",
+      "line_number": 95,
+      "line_range": [
+        95
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b106_hardcoded_password_funcarg.html",
+      "test_id": "B106",
+      "test_name": "hardcoded_password_funcarg"
+    },
+    {
+      "code": "95 assert post(bob, \"/tasks/1/edit\", edit, token_path=\"/tasks/new\").status_code == 404\n96 assert post(bob, \"/tasks/1/delete\", {}, token_path=\"/tasks/new\").status_code == 404\n97 assert \"alert(1)\" in alice.get(\"/\").get_data(as_text=True)\n",
+      "col_offset": 0,
+      "end_col_offset": 83,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 96,
+      "line_range": [
+        96
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "95 assert post(bob, \"/tasks/1/edit\", edit, token_path=\"/tasks/new\").status_code == 404\n96 assert post(bob, \"/tasks/1/delete\", {}, token_path=\"/tasks/new\").status_code == 404\n97 assert \"alert(1)\" in alice.get(\"/\").get_data(as_text=True)\n",
+      "col_offset": 7,
+      "end_col_offset": 64,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: '/tasks/new'",
+      "line_number": 96,
+      "line_range": [
+        96
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b106_hardcoded_password_funcarg.html",
+      "test_id": "B106",
+      "test_name": "hardcoded_password_funcarg"
+    },
+    {
+      "code": "96 assert post(bob, \"/tasks/1/delete\", {}, token_path=\"/tasks/new\").status_code == 404\n97 assert \"alert(1)\" in alice.get(\"/\").get_data(as_text=True)\n98 \n",
+      "col_offset": 0,
+      "end_col_offset": 58,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 97,
+      "line_range": [
+        97
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "100 edit = {\"title\": \"renamed\", \"description\": \"new\", \"status\": \"done\"}\n101 assert post(alice, \"/tasks/1/edit\", edit).status_code == 302\n102 assert \"renamed\" in alice.get(\"/\").get_data(as_text=True)\n",
+      "col_offset": 0,
+      "end_col_offset": 60,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 101,
+      "line_range": [
+        101
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "101 assert post(alice, \"/tasks/1/edit\", edit).status_code == 302\n102 assert \"renamed\" in alice.get(\"/\").get_data(as_text=True)\n103 assert post(alice, \"/tasks/1/delete\", {}, token_path=\"/tasks/new\").status_code == 302\n",
+      "col_offset": 0,
+      "end_col_offset": 57,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 102,
+      "line_range": [
+        102
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "102 assert \"renamed\" in alice.get(\"/\").get_data(as_text=True)\n103 assert post(alice, \"/tasks/1/delete\", {}, token_path=\"/tasks/new\").status_code == 302\n104 assert \"renamed\" not in alice.get(\"/\").get_data(as_text=True)\n",
+      "col_offset": 0,
+      "end_col_offset": 85,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 103,
+      "line_range": [
+        103
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "102 assert \"renamed\" in alice.get(\"/\").get_data(as_text=True)\n103 assert post(alice, \"/tasks/1/delete\", {}, token_path=\"/tasks/new\").status_code == 302\n104 assert \"renamed\" not in alice.get(\"/\").get_data(as_text=True)\n",
+      "col_offset": 7,
+      "end_col_offset": 66,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: '/tasks/new'",
+      "line_number": 103,
+      "line_range": [
+        103
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b106_hardcoded_password_funcarg.html",
+      "test_id": "B106",
+      "test_name": "hardcoded_password_funcarg"
+    },
+    {
+      "code": "103 assert post(alice, \"/tasks/1/delete\", {}, token_path=\"/tasks/new\").status_code == 302\n104 assert \"renamed\" not in alice.get(\"/\").get_data(as_text=True)\n105 \n",
+      "col_offset": 0,
+      "end_col_offset": 61,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 104,
+      "line_range": [
+        104
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "106 # Admin authorization.\n107 assert alice.get(\"/admin/users\").status_code == 403\n108 result = app.test_cli_runner().invoke(\n",
+      "col_offset": 0,
+      "end_col_offset": 51,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 107,
+      "line_range": [
+        107
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "110 )\n111 assert result.exit_code == 0, result.output\n112 admin = app.test_client()\n",
+      "col_offset": 0,
+      "end_col_offset": 43,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 111,
+      "line_range": [
+        111
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "112 admin = app.test_client()\n113 assert login(admin, \"root_admin\").status_code == 302\n114 users_page = admin.get(\"/admin/users\").get_data(as_text=True)\n",
+      "col_offset": 0,
+      "end_col_offset": 52,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 113,
+      "line_range": [
+        113
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "114 users_page = admin.get(\"/admin/users\").get_data(as_text=True)\n115 assert \"alice\" in users_page and \"bob\" in users_page and \"scrypt\" not in users_page\n116 \n",
+      "col_offset": 0,
+      "end_col_offset": 83,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 115,
+      "line_range": [
+        115
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "117 # Logout ends the session.\n118 assert post(alice, \"/logout\", {}, token_path=\"/tasks/new\").status_code == 302\n119 assert alice.get(\"/\").status_code == 302\n",
+      "col_offset": 0,
+      "end_col_offset": 77,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 118,
+      "line_range": [
+        118
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "117 # Logout ends the session.\n118 assert post(alice, \"/logout\", {}, token_path=\"/tasks/new\").status_code == 302\n119 assert alice.get(\"/\").status_code == 302\n",
+      "col_offset": 7,
+      "end_col_offset": 58,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: '/tasks/new'",
+      "line_number": 118,
+      "line_range": [
+        118
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b106_hardcoded_password_funcarg.html",
+      "test_id": "B106",
+      "test_name": "hardcoded_password_funcarg"
+    },
+    {
+      "code": "118 assert post(alice, \"/logout\", {}, token_path=\"/tasks/new\").status_code == 302\n119 assert alice.get(\"/\").status_code == 302\n120 \n",
+      "col_offset": 0,
+      "end_col_offset": 40,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 119,
+      "line_range": [
+        119
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "122 for _ in range(app_module.MAX_FAILURES_PER_USERNAME):\n123     assert b\"Invalid username or password\" in login(anon, \"bob\", \"wrong-password-1\").data\n124 assert login(anon, \"bob\", \"wrong-password-1\").status_code == 429\n",
+      "col_offset": 4,
+      "end_col_offset": 89,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 123,
+      "line_range": [
+        123
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "123     assert b\"Invalid username or password\" in login(anon, \"bob\", \"wrong-password-1\").data\n124 assert login(anon, \"bob\", \"wrong-password-1\").status_code == 429\n125 assert login(anon, \"bob\").status_code == 429\n",
+      "col_offset": 0,
+      "end_col_offset": 64,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 124,
+      "line_range": [
+        124
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    },
+    {
+      "code": "124 assert login(anon, \"bob\", \"wrong-password-1\").status_code == 429\n125 assert login(anon, \"bob\").status_code == 429\n126 \n",
+      "col_offset": 0,
+      "end_col_offset": 44,
+      "filename": "./test_smoke.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "line_number": 125,
+      "line_range": [
+        125
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html",
+      "test_id": "B101",
+      "test_name": "assert_used"
+    }
+  ]
+}
