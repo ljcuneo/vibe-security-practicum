@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Registered Users{% endblock %}
+
+{% block content %}
+  <h1>Registered Users</h1>
+  <table class="task-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Registered</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+        <tr>
+          <td>{{ user['id'] }}</td>
+          <td>{{ user['username'] }}</td>
+          <td>{{ 'Administrator' if user['is_admin'] else 'User' }}</td>
+          <td>{{ user['created_at'] }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
