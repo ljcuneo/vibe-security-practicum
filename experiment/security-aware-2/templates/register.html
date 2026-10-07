@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+  <h1>Register</h1>
+  <form method="post" action="{{ url_for('register') }}" class="stack">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text" value="{{ username }}" minlength="3" maxlength="32" autocomplete="username" required autofocus>
+    <p class="hint">3-32 characters: letters, digits, or underscores.</p>
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" minlength="10" maxlength="128" autocomplete="new-password" required>
+    <p class="hint">At least 10 characters, with at least one letter and one digit.</p>
+    <label for="confirm">Confirm password</label>
+    <input id="confirm" name="confirm" type="password" minlength="10" maxlength="128" autocomplete="new-password" required>
+    <button type="submit">Register</button>
+  </form>
+  <p>Already registered? <a href="{{ url_for('login') }}">Log in</a></p>
+{% endblock %}

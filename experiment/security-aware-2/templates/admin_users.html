@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Users{% endblock %}
+{% block content %}
+  <h1>Registered users</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Registered (UTC)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+        <tr>
+          <td>{{ user['id'] }}</td>
+          <td>{{ user['username'] }}</td>
+          <td>{{ 'Administrator' if user['is_admin'] else 'User' }}</td>
+          <td>{{ user['created_at'] }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
