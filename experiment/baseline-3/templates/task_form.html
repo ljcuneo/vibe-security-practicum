@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Edit' if task and task.id else 'New' }} Task{% endblock %}
+{% block content %}
+<h1>{{ 'Edit' if task and task.id else 'New' }} Task</h1>
+<form method="post" class="card">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <label>Title <input name="title" maxlength="200" required value="{{ task.title if task else '' }}"></label>
+  <label>Description <textarea name="description" rows="6" maxlength="5000">{{ task.description if task else '' }}</textarea></label>
+  <label>Status
+    <select name="status">
+      {% for s in statuses %}
+        <option value="{{ s }}" {% if task and task.status == s %}selected{% endif %}>{{ s }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <div class="row">
+    <button type="submit">{{ action }}</button>
+    <a href="{{ url_for('view_task', task_id=task.id) if task and task.id else url_for('index') }}">Cancel</a>
+  </div>
+</form>
+{% endblock %}

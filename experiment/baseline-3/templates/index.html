@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}My Tasks{% endblock %}
+{% block content %}
+<div class="row">
+  <h1>My Tasks</h1>
+  <a class="button" href="{{ url_for('create_task') }}">+ New Task</a>
+</div>
+{% if tasks %}
+<table>
+  <thead><tr><th>Title</th><th>Status</th><th>Created</th><th></th></tr></thead>
+  <tbody>
+  {% for t in tasks %}
+    <tr>
+      <td><a href="{{ url_for('view_task', task_id=t.id) }}">{{ t.title }}</a></td>
+      <td><span class="status status-{{ t.status|lower|replace(' ', '-') }}">{{ t.status }}</span></td>
+      <td>{{ t.created_at }}</td>
+      <td class="actions">
+        <a href="{{ url_for('edit_task', task_id=t.id) }}">Edit</a>
+        <form class="inline" method="post" action="{{ url_for('delete_task', task_id=t.id) }}"
+              onsubmit="return confirm('Delete this task?');">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <button type="submit" class="link danger">Delete</button>
+        </form>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>You have no tasks yet. <a href="{{ url_for('create_task') }}">Create one</a>.</p>
+{% endif %}
+{% endblock %}
