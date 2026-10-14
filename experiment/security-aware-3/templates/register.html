@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Register · Task Manager{% endblock %}
+{% block content %}
+<h1>Create an account</h1>
+<form method="post" class="card form">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <label for="username">Username</label>
+  <input id="username" name="username" type="text" value="{{ username }}" minlength="3" maxlength="32" pattern="[A-Za-z0-9_.\-]{3,32}" autocomplete="username" required autofocus>
+  <small>3–32 characters: letters, digits, '.', '_' or '-'.</small>
+  <label for="password">Password</label>
+  <input id="password" name="password" type="password" minlength="12" maxlength="128" autocomplete="new-password" required>
+  <small>At least 12 characters, including a letter and a digit. Must not contain your username.</small>
+  <label for="confirm_password">Confirm password</label>
+  <input id="confirm_password" name="confirm_password" type="password" minlength="12" maxlength="128" autocomplete="new-password" required>
+  <button type="submit">Register</button>
+</form>
+<p>Already registered? <a href="{{ url_for('login') }}">Log in</a>.</p>
+{% endblock %}

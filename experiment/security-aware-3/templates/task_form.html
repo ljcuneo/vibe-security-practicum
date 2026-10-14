@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}{{ 'New task' if is_new else 'Edit task' }} · Task Manager{% endblock %}
+{% block content %}
+<p><a href="{{ url_for('list_tasks') }}">&larr; Back to tasks</a></p>
+<h1>{{ 'New task' if is_new else 'Edit task' }}</h1>
+<form method="post" class="card form">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <label for="title">Title</label>
+  <input id="title" name="title" type="text" value="{{ task['title'] }}" maxlength="200" required autofocus>
+  <label for="description">Description</label>
+  <textarea id="description" name="description" rows="6" maxlength="2000">{{ task['description'] }}</textarea>
+  <label for="status">Status</label>
+  <select id="status" name="status">
+    {% for value, label in task_statuses.items() %}
+      <option value="{{ value }}"{% if task['status'] == value %} selected{% endif %}>{{ label }}</option>
+    {% endfor %}
+  </select>
+  <button type="submit">{{ 'Create task' if is_new else 'Save changes' }}</button>
+</form>
+{% endblock %}

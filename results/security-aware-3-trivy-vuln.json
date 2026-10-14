@@ -1,0 +1,181 @@
+{
+  "SchemaVersion": 2,
+  "Trivy": {
+    "Version": "0.74.0"
+  },
+  "ReportID": "01a13c46-23f8-7747-99dc-f4992d212a49",
+  "CreatedAt": "2026-10-14T14:16:32.120479-07:00",
+  "ArtifactName": "../../results/security-aware-3-dependency-scan",
+  "ArtifactType": "filesystem",
+  "Results": [
+    {
+      "Target": "requirements.txt",
+      "Class": "lang-pkgs",
+      "Type": "pip",
+      "Packages": [
+        {
+          "Name": "Flask",
+          "Identifier": {
+            "PURL": "pkg:pypi/flask@3.1.3",
+            "UID": "eddeab5b12bd1f71"
+          },
+          "Version": "3.1.3",
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Locations": [
+            {
+              "StartLine": 3,
+              "EndLine": 3
+            }
+          ],
+          "AnalyzedBy": "pip"
+        },
+        {
+          "Name": "Flask-WTF",
+          "Identifier": {
+            "PURL": "pkg:pypi/flask-wtf@1.3.0",
+            "UID": "42c0185ccddb9895"
+          },
+          "Version": "1.3.0",
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Locations": [
+            {
+              "StartLine": 4,
+              "EndLine": 4
+            }
+          ],
+          "AnalyzedBy": "pip"
+        },
+        {
+          "Name": "Jinja2",
+          "Identifier": {
+            "PURL": "pkg:pypi/jinja2@3.1.6",
+            "UID": "7f4446dfc1787b0f"
+          },
+          "Version": "3.1.6",
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Locations": [
+            {
+              "StartLine": 6,
+              "EndLine": 6
+            }
+          ],
+          "AnalyzedBy": "pip"
+        },
+        {
+          "Name": "MarkupSafe",
+          "Identifier": {
+            "PURL": "pkg:pypi/markupsafe@3.0.4",
+            "UID": "5c05b09cf9e02161"
+          },
+          "Version": "3.0.4",
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Locations": [
+            {
+              "StartLine": 7,
+              "EndLine": 7
+            }
+          ],
+          "AnalyzedBy": "pip"
+        },
+        {
+          "Name": "WTForms",
+          "Identifier": {
+            "PURL": "pkg:pypi/wtforms@3.2.2",
+            "UID": "bf4b9e5911062206"
+          },
+          "Version": "3.2.2",
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Locations": [
+            {
+              "StartLine": 9,
+              "EndLine": 9
+            }
+          ],
+          "AnalyzedBy": "pip"
+        },
+        {
+          "Name": "Werkzeug",
+          "Identifier": {
+            "PURL": "pkg:pypi/werkzeug@3.1.9",
+            "UID": "fb72db5b37d25864"
+          },
+          "Version": "3.1.9",
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Locations": [
+            {
+              "StartLine": 8,
+              "EndLine": 8
+            }
+          ],
+          "AnalyzedBy": "pip"
+        },
+        {
+          "Name": "blinker",
+          "Identifier": {
+            "PURL": "pkg:pypi/blinker@1.9.0",
+            "UID": "ba72ae6eaa7d90f9"
+          },
+          "Version": "1.9.0",
+          "Licenses": [
+            "MIT"
+          ],
+          "Locations": [
+            {
+              "StartLine": 1,
+              "EndLine": 1
+            }
+          ],
+          "AnalyzedBy": "pip"
+        },
+        {
+          "Name": "click",
+          "Identifier": {
+            "PURL": "pkg:pypi/click@8.5.0",
+            "UID": "3f93d071e20365ae"
+          },
+          "Version": "8.5.0",
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Locations": [
+            {
+              "StartLine": 2,
+              "EndLine": 2
+            }
+          ],
+          "AnalyzedBy": "pip"
+        },
+        {
+          "Name": "itsdangerous",
+          "Identifier": {
+            "PURL": "pkg:pypi/itsdangerous@2.2.0",
+            "UID": "93aa883aa589565c"
+          },
+          "Version": "2.2.0",
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Locations": [
+            {
+              "StartLine": 5,
+              "EndLine": 5
+            }
+          ],
+          "AnalyzedBy": "pip"
+        }
+      ]
+    }
+  ]
+}
