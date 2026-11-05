@@ -284,6 +284,9 @@ The logged-out session cannot continue accessing protected resources.
 
 ### TEST-07 — Repeated Failed Authentication
 
+**Retrospective procedure clarification (November 2026):** The assessor confirms that TEST-07 used a standardized 10-attempt repeated-failed-login procedure for all six applications. Original assessment records vary in how many attempts and outcomes they explicitly describe. Preserve those original observations; a lockout may prevent further ordinary login attempts.
+
+
 Perform the same predefined number of unsuccessful login attempts
 against each application.
 

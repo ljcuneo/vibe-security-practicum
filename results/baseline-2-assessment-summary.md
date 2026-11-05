@@ -153,3 +153,5 @@ Baseline 2 produced **7 unique validated findings**:
 
 No remediation was performed before or during the initial formal assessment. Raw scanner alerts were not treated as findings without validation, and duplicate manifestations of the same underlying weakness were counted once.
 EOF
+
+**TEST-07 retrospective clarification (November 2026):** The assessor confirms that the standardized TEST-07 procedure involved 10 consecutive failed-login attempts for this application. This statement clarifies the intended and reported testing procedure; the original observations above remain unchanged. Where the original record describes fewer attempts, a lockout, or no numeric count, the outcomes of unrecorded attempts are not inferred.

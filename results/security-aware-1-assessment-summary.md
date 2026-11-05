@@ -346,3 +346,5 @@ The validated-finding total represents unique confirmed weaknesses rather than r
 - Claude Code's generation-time claims about implemented security controls were not treated as assessment results; controls were independently evaluated.
 - Security-Aware 1 represents one independently generated application instance and is not by itself sufficient to establish a condition-level effect.
 - Claude Code automatically updated from version 2.1.269 for Baseline 1 to version 2.1.274 for Security-Aware 1. Sonnet 5 and the High effort setting remained unchanged. This environment variation is documented for transparency.
+
+**TEST-07 retrospective clarification (November 2026):** The assessor confirms that the standardized TEST-07 procedure involved 10 consecutive failed-login attempts for this application. This statement clarifies the intended and reported testing procedure; the original observations above remain unchanged. Where the original record describes fewer attempts, a lockout, or no numeric count, the outcomes of unrecorded attempts are not inferred.

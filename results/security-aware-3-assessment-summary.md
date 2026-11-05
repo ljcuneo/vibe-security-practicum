@@ -126,3 +126,5 @@ Across the six generated applications, the preliminary finding counts are:
 These preliminary results suggest that explicitly including security requirements in the generation prompt is associated with fewer observed security weaknesses in this controlled experiment.
 
 The small sample size, differences between generated applications, and limited testing scope prevent broad generalization.
+
+**TEST-07 retrospective clarification (November 2026):** The assessor confirms that the standardized TEST-07 procedure involved 10 consecutive failed-login attempts for this application. This statement clarifies the intended and reported testing procedure; the original observations above remain unchanged. Where the original record describes fewer attempts, a lockout, or no numeric count, the outcomes of unrecorded attempts are not inferred.

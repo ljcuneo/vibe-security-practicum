@@ -102,3 +102,5 @@ Baseline 3 demonstrated stronger default security behavior in several areas than
 Five security weaknesses were identified through passive scanning, HTTP inspection, and manual testing. Some represent missing defensive controls rather than demonstrated exploitation.
 
 These results will be compared against Security-Aware 3 using the same assessment methodology.
+
+**TEST-07 retrospective clarification (November 2026):** The assessor confirms that the standardized TEST-07 procedure involved 10 consecutive failed-login attempts for this application. This statement clarifies the intended and reported testing procedure; the original observations above remain unchanged. Where the original record describes fewer attempts, a lockout, or no numeric count, the outcomes of unrecorded attempts are not inferred.

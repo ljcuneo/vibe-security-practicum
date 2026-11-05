@@ -348,3 +348,5 @@ The validated-finding total represents unique confirmed weaknesses rather than r
 - No manual source-code changes were made to the generated application before assessment.
 - The exploratory prototype is excluded from the formal experimental dataset.
 - Baseline 1 represents one independently generated application instance and is not by itself used to draw conclusions about differences between the baseline and security-aware experimental conditions.
+
+**TEST-07 retrospective clarification (November 2026):** The assessor confirms that the standardized TEST-07 procedure involved 10 consecutive failed-login attempts for this application. This statement clarifies the intended and reported testing procedure; the original observations above remain unchanged. Where the original record describes fewer attempts, a lockout, or no numeric count, the outcomes of unrecorded attempts are not inferred.
