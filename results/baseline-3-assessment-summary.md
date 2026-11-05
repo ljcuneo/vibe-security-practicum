@@ -104,3 +104,20 @@ Five security weaknesses were identified through passive scanning, HTTP inspecti
 These results will be compared against Security-Aware 3 using the same assessment methodology.
 
 **TEST-07 retrospective clarification (November 2026):** The assessor confirms that the standardized TEST-07 procedure involved 10 consecutive failed-login attempts for this application. This statement clarifies the intended and reported testing procedure; the original observations above remain unchanged. Where the original record describes fewer attempts, a lockout, or no numeric count, the outcomes of unrecorded attempts are not inferred.
+
+### Supplemental HTTP Header Verification — November 4, 2026 (PST)
+
+A direct HTTP request was performed against the locally running
+Baseline 3 Flask application at `http://127.0.0.1:5001/login`.
+
+The endpoint returned HTTP 200 OK. Response-header inspection
+confirmed the absence of:
+
+- `Content-Security-Policy`
+- `X-Frame-Options` (no CSP `frame-ancestors` protection)
+- `X-Content-Type-Options: nosniff`
+
+Evidence: `results/baseline-3-http-headers.txt`
+
+This supplemental verification supports the existing security-header
+findings without changing their severity or the overall finding counts.
