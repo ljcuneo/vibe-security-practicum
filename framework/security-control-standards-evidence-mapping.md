@@ -7,33 +7,37 @@
 
 ## How to read this mapping
 
-- **Direct observation (E):** The six-app experiment included relevant assessment evidence. A passing test supports only the tested case, not comprehensive conformance to an ASVS requirement.
-- **Standards-based / proposed (S/P):** The control is grounded in a standard and recommended for operational adoption, but the experiment did not independently validate the full control or workflow.
-- **Partial (E/P):** Some aspect was observed, but the full requirement, intended production environment, or operational process was not tested.
+The **Experimental support** column states how far the six-application experiment tested each control. It uses the same definitions as Table 1 of the final report:
+
+- **Observed:** Tested in all six applications through the common assessment procedure. A passing test supports only the tested case, not comprehensive conformance to an ASVS requirement.
+- **Partial:** Some aspects tested; for example, not the full check, not documented for every application, or not in the intended production environment.
+- **Not evaluated:** Not exercised in the experiment.
 - **N/A:** An ASVS identifier is not assigned where the checklist row describes a broader workflow rather than a single application-level requirement.
+
+Experimental support is separate from the **Basis** column (S, E, P) in the predeployment checklist of [`lightweight-security-assurance-framework-v2.md`](lightweight-security-assurance-framework-v2.md). Basis records each control's source of justification (standards-based, experiment-informed, or proposed operational guidance) and is unchanged by this mapping. Neither column is a claim of compliance.
 
 ASVS identifiers are version-pinned (`v5.0.0-...`). The mappings indicate **relevant requirements**, not a one-to-one equivalence between the framework's abbreviated check and every obligation in the standard. NIST SSDF references identify supporting *practices*, not evidence of formal compliance.
 
 ## Control-level traceability
 
-| Framework ID | Requirement / verification focus | OWASP ASVS 5.0.0 reference(s) | NIST SSDF supporting practice(s) | Practicum evidence and boundary | Classification |
+| Framework ID | Requirement / verification focus | OWASP ASVS 5.0.0 reference(s) | NIST SSDF supporting practice(s) | Practicum evidence and boundary | Experimental support |
 |---|---|---|---|---|---|
-| REQ-01 | Document sensitive features, roles, exposure and security expectations | `v5.0.0-8.1.1` (authorization rules); `v5.0.0-6.1.1` (anti-automation documentation) | PO.1; PW.1 | Common task-app specification and security-aware prompt; not a full documented threat model for each app | E/P |
-| AUTH-01 | Reject unauthenticated access to protected endpoints | `v5.0.0-8.2.1`; `v5.0.0-8.3.1` | PW.1; PW.8 | Targeted unauthenticated-access tests in the assessments; no exhaustive endpoint coverage | E |
-| AUTH-02 | Enforce object-level permissions | `v5.0.0-8.2.2` | PW.1; PW.8 | Cross-user task-access tests; limited objects and roles | E |
-| AUTH-03 | Enforce admin/function-level permissions | `v5.0.0-8.2.1`; `v5.0.0-8.3.1` | PW.1; PW.8 | Admin-route access tests with ordinary users; not all operations tested | E |
-| AUTH-04 | Resist repeated failed login attempts | `v5.0.0-6.1.1`; `v5.0.0-6.3.1` | PW.1; PW.8 | All three baseline apps lacked observable protection within limited attempts; security-aware apps showed protections in tested cases; no distributed-attack testing | E |
-| SESS-01 | Set session-cookie flags appropriate to intended deployment | `v5.0.0-3.3.1` (`Secure`); `v5.0.0-3.3.2` (`SameSite`); `v5.0.0-3.3.4` (`HttpOnly`) | PW.9; PW.8 | `SameSite` absent in two baseline apps; security-aware cookie attributes inspected; local HTTP does not verify production HTTPS/Secure behavior | E/P |
-| SESS-02 | Invalidate session at logout | `v5.0.0-7.4.1` | PW.8 | Logout access checks in assessment summaries; limited to tested session behavior | E |
-| CSRF-01 | Prevent cross-origin forged state changes when applicable | `v5.0.0-3.5.1`; `v5.0.0-3.5.2` (alternative preflight-dependent design, **if used**) | PW.1; PW.8 | Missing CSRF protection validated in baseline 1 and 2; security-aware apps rejected selected tokenless requests; not a complete cross-origin attack simulation | E |
-| INPUT-01 | Use appropriate validation and context-aware output encoding | `v5.0.0-2.2.1`; `v5.0.0-1.2.1` | PW.1; PW.8 | Targeted XSS/input tests did not reproduce exploitation; this does not prove broad injection resistance | E/P |
-| DATA-01 | Protect database queries from injection | `v5.0.0-1.2.4` | PW.1; PW.8 | Selected SQL-like inputs and query inspection; not an exhaustive SQL-injection assessment | E/P |
-| HDR-01 | Apply CSP, anti-framing policy and `nosniff` | `v5.0.0-3.4.3` (CSP); `v5.0.0-3.4.6` (`frame-ancestors`); `v5.0.0-3.4.4` (`nosniff`) | PW.9; PW.8 | All three baseline apps lacked these observed protections; security-aware apps had them in assessed responses. Header presence alone does not establish policy quality | E |
-| CONF-01 | Disable production debug functionality | `v5.0.0-13.4.2`; `v5.0.0-15.2.3` | PW.9 | Debug mode enabled in baseline 1; security-aware configuration reviewed; production deployment not tested | E/P |
-| CONF-02 | Review production server, transport security and version banners | `v5.0.0-13.4.6` (backend version details); `v5.0.0-3.4.1` (HSTS on HTTPS) | PW.9 | All six apps disclosed Werkzeug/Python versions; production TLS/HSTS/server setup was not evaluated | E/P |
-| DEP-01 | Review vulnerable components and potential secrets | `v5.0.0-15.1.1` (component remediation timeframes); `v5.0.0-15.1.2` (component inventory) | PW.4; RV.1; RV.2 | Trivy reports reviewed for applicability; some DB updates unavailable; an SBOM and production supply-chain assurance were not established by this experiment | E/P |
-| FIND-01 | Validate, deduplicate and prioritize findings | **N/A — assurance workflow** | PW.7; PW.8; RV.1; RV.2 | Six assessment summaries distinguish candidate alerts from validated findings; this was part of the research assessment process | E |
-| REL-01 | Retest fixes and document release decision | **N/A — assurance workflow** | PW.8; RV.2; PO.4 | Proposed stage only: no controlled post-remediation experiment or organizational release approval was conducted | S/P |
+| REQ-01 | Document sensitive features, roles, exposure and security expectations | `v5.0.0-8.1.1` (authorization rules); `v5.0.0-6.1.1` (anti-automation documentation) | PO.1; PW.1 | Common task-app specification and security-aware prompt; not a full documented threat model for each app | Partial |
+| AUTH-01 | Reject unauthenticated access to protected endpoints | `v5.0.0-8.2.1`; `v5.0.0-8.3.1` | PW.1; PW.8 | Targeted unauthenticated-access tests in the assessments; no exhaustive endpoint coverage | Observed |
+| AUTH-02 | Enforce object-level permissions | `v5.0.0-8.2.2` | PW.1; PW.8 | Cross-user task-access tests; limited objects and roles | Observed |
+| AUTH-03 | Enforce admin/function-level permissions | `v5.0.0-8.2.1`; `v5.0.0-8.3.1` | PW.1; PW.8 | Admin-route access tests with ordinary users; not all operations tested | Observed |
+| AUTH-04 | Resist repeated failed login attempts | `v5.0.0-6.1.1`; `v5.0.0-6.3.1` | PW.1; PW.8 | All three baseline apps lacked observable protection within limited attempts; security-aware apps showed protections in tested cases; no distributed-attack testing; original TEST-07 records do not document a numeric attempt count for every application | Partial |
+| SESS-01 | Set session-cookie flags appropriate to intended deployment | `v5.0.0-3.3.1` (`Secure`); `v5.0.0-3.3.2` (`SameSite`); `v5.0.0-3.3.4` (`HttpOnly`) | PW.9; PW.8 | `SameSite` absent in two baseline apps; security-aware cookie attributes inspected; local HTTP does not verify production HTTPS/Secure behavior | Partial |
+| SESS-02 | Invalidate session at logout | `v5.0.0-7.4.1` | PW.8 | Logout access checks in assessment summaries; limited to tested session behavior | Observed |
+| CSRF-01 | Prevent cross-origin forged state changes when applicable | `v5.0.0-3.5.1`; `v5.0.0-3.5.2` (alternative preflight-dependent design, **if used**) | PW.1; PW.8 | Missing CSRF protection validated in baseline 1 and 2; security-aware apps rejected selected tokenless requests; not a complete cross-origin attack simulation | Observed |
+| INPUT-01 | Use appropriate validation and context-aware output encoding | `v5.0.0-2.2.1`; `v5.0.0-1.2.1` | PW.1; PW.8 | Targeted XSS/input tests did not reproduce exploitation; this does not prove broad injection resistance | Partial |
+| DATA-01 | Protect database queries from injection | `v5.0.0-1.2.4` | PW.1; PW.8 | Selected SQL-like inputs and query inspection; not an exhaustive SQL-injection assessment; parameterized-query review is documented only for baseline 3 and security-aware 3 | Partial |
+| HDR-01 | Apply CSP, anti-framing policy and `nosniff` | `v5.0.0-3.4.3` (CSP); `v5.0.0-3.4.6` (`frame-ancestors`); `v5.0.0-3.4.4` (`nosniff`) | PW.9; PW.8 | All three baseline apps lacked these observed protections; security-aware apps had them in assessed responses. Header presence alone does not establish policy quality | Observed |
+| CONF-01 | Disable production debug functionality | `v5.0.0-13.4.2`; `v5.0.0-15.2.3` | PW.9 | Debug mode enabled in baseline 1; security-aware configuration reviewed; production deployment not tested | Partial |
+| CONF-02 | Review production server, transport security and version banners | `v5.0.0-13.4.6` (backend version details); `v5.0.0-3.4.1` (HSTS on HTTPS) | PW.9 | All six apps disclosed Werkzeug/Python versions; production TLS/HSTS/server setup was not evaluated | Partial |
+| DEP-01 | Review vulnerable components and potential secrets | `v5.0.0-15.1.1` (component remediation timeframes); `v5.0.0-15.1.2` (component inventory) | PW.4; RV.1; RV.2 | Trivy reports reviewed for applicability; some DB updates unavailable; an SBOM and production supply-chain assurance were not established by this experiment | Partial |
+| FIND-01 | Validate, deduplicate and prioritize findings | **N/A — assurance workflow** | PW.7; PW.8; RV.1; RV.2 | Six assessment summaries distinguish candidate alerts from validated findings; this was part of the research assessment process; the framework's proposed priority levels were not applied to the experimental findings | Partial |
+| REL-01 | Retest fixes and document release decision | **N/A — assurance workflow** | PW.8; RV.2; PO.4 | Proposed stage only: no controlled post-remediation experiment or organizational release approval was conducted | Not evaluated |
 
 ## Experimental evidence summary
 
